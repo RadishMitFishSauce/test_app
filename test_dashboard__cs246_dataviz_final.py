@@ -20,7 +20,15 @@ from wordcloud import WordCloud
 from wordcloud import STOPWORDS
 import matplotlib.font_manager as fm
 
-!wget https://github.com/Phonbopit/sarabun-webfont/raw/master/fonts/thsarabunnew-webfont.ttf
+import requests
+
+url = "https://github.com/Phonbopit/sarabun-webfont/raw/master/fonts/thsarabunnew-webfont.ttf"
+filename = "thsarabunnew-webfont.ttf"
+
+response = requests.get(url)
+with open(filename, 'wb') as f:
+    f.write(response.content)
+
 
 import matplotlib as mpl
 
@@ -1399,8 +1407,6 @@ plt.show()
 
 """# Dashboard"""
 
-!pip install streamlit
-!pip install pyngrok
 
 import streamlit as st
 
